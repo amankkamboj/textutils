@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 
 function TextForm(props) {
     const handelResetClick = () => {
-        setText("Enter your text here");
+        setText("");
     }
     const handelUpClick= ()=>{
         console.log("on click convert upper");
@@ -21,7 +21,7 @@ function TextForm(props) {
         setText(currentText);
     }
     // usestate to handel the side effect 
-    const [text,setText]=useState("Enter your text here");
+    const [text,setText]=useState("");
   return (
     <>
     <div className={`container text-${props.mode==='light'?'dark':'light'}`}>
@@ -34,7 +34,7 @@ function TextForm(props) {
     </div>
     <h2>Your Text Summary</h2>
     <p>{text.split(" ").filter((element)=>{ return element.length!==0 }).length} words and {text.length} characters</p>
-    <p>{0.008 * text.split(" ").length} Minutes read..</p>
+    <p>{0.008 * text.split(" ").filter((element)=>{ return element.length!==0 }).length} Minutes read..</p>
     <h2>Text Prieview</h2>
     <p>{text}</p>
 

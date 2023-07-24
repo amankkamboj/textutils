@@ -42,8 +42,8 @@ function App() {
     <Navbar title="Text Utils" mode={mode} toggleMode={toggleMode}/>
     <Alert alert={alert}/>
       <Routes>        
-        <Route exact index element={<TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />} />
-        <Route exact path="about" element={<About />} />
+        <Route exact index element={<TextForm heading="Analyze your text here!" mode={mode} showAlert={showAlert} />} />
+        <Route exact path="about" element={<About mode={mode} />} />
       </Routes>
     </BrowserRouter>
     </>
