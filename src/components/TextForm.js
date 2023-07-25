@@ -21,9 +21,7 @@ function TextForm(props) {
         setText(currentText);
     }
     const handelCopy= ()=>{
-        let copy_txt= document.getElementById("myBox");
-        copy_txt.select();
-        navigator.clipboard.writeText(copy_txt.value);
+        navigator.clipboard.writeText(text);
         props.showAlert("Text Copied Successfully","info");
     }
     // usestate to handel the side effect 
@@ -40,7 +38,7 @@ function TextForm(props) {
   <button disabled={text.length===0} className='btn btn-warning mx-1' onClick={handelCopy}>Copy Text</button>
     </div>
     <h2>Your Text Summary</h2>
-    <p>{text.split(" ").filter((element)=>{ return element.length!==0 }).length} words and {text.length} characters</p>
+    <p>{text.split(/\s+/).filter((element)=>{ return element.length!==0 }).length} words and {text.length} characters</p>
     <p>{0.008 * text.split(" ").filter((element)=>{ return element.length!==0 }).length} Minutes read..</p>
     <h2>Text Prieview</h2>
     <p>{text}</p>
